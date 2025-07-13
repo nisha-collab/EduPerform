@@ -102,3 +102,15 @@ if __name__ == '__main__':
         print(f"Created directory: {data_dir}")
 
     app.run(debug=True)
+if __name__ == '__main__':
+    import os
+
+    # Ensure 'data' directory exists (though student_data.csv is no longer used for distribution chart)
+    data_dir = os.path.join(os.getcwd(), 'data')
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+        print(f"Created directory: {data_dir}")
+
+    # Required for Render deployment
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
