@@ -17,3 +17,4 @@ six==1.16.0
 threadpoolctl==3.5.0
 tzdata==2024.1
 Werkzeug==2.3.8
+gunicorn==22.0.0  # Add this line (or the version you installed locally)
