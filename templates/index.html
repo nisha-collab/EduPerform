@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPerform Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Plotly.js for interactive graphs -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="icon">🎓</span> EduPerform</h1>
+            <p>AI-Powered Student Performance Prediction Dashboard</p>
+        </header>
+
+        <!-- What is EduPerform? Section -->
+        <div class="card info-card">
+            <h2><span class="icon">🟦</span> What is EduPerform?</h2>
+            <p>EduPerform uses machine learning to analyze students' academic performance based on their math, reading, and writing scores. With the power of AI, it predicts whether a student is likely to pass or fail.</p>
+            <p>Our model is trained on real data and optimized using Random Forest Classifier for accuracy.</p>
+        </div>
+
+        <!-- Predict Student Outcome Section -->
+        <div class="card predict-card">
+            <h2><span class="icon">🧠</span> Predict Student Outcome</h2>
+            <form action="/predict" method="POST">
+                <!-- Only numerical score inputs remain -->
+                <input type="number" name="math" id="math" placeholder="Math Score (0–100)" min="0" max="100" required>
+                <input type="number" name="reading" id="reading" placeholder="Reading Score (0–100)" min="0" max="100" required>
+                <input type="number" name="writing" id="writing" placeholder="Writing Score (0–100)" min="0" max="100" required>
+
+                <button type="submit">Predict Now <span class="icon">🚀</span></button>
+            </form>
+
+            {% if prediction %}
+            <div class="result">Prediction: <strong>{{ prediction }}</strong></div>
+            {% endif %}
+        </div>
+
+        <!-- Student Score Chart Section (now a Pie Chart) -->
+        {% if graph_html %}
+        <div class="card graph-section">
+            <h2><span class="icon">📊</span> Your Performance Breakdown</h2>
+            {{ graph_html|safe }}
+        </div>
+        {% endif %}
+
+        <footer>Made with <span class="icon">💙</span> by Nisha | EduPerform © 2025</footer>
+    </div>
+</body>
+</html>

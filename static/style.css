@@ -1,0 +1,211 @@
+body {
+    background-color: #0c0c0f; /* Dark background */
+    color: #e0e0e0; /* Light grey for general text */
+    font-family: 'Inter', sans-serif; /* Using Inter font */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to start to allow scrolling */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.03); /* Slightly transparent white background for the container */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.5); /* Neon blue outer glow */
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between cards */
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+h1 .icon {
+    font-size: 2.5rem;
+    vertical-align: middle;
+    margin-right: 10px;
+    color: #00e5ff; /* Neon blue for icons */
+}
+
+p {
+    font-size: 1.1rem;
+    color: #a0a0a0; /* Lighter grey for paragraphs */
+    line-height: 1.6;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05); /* Slightly lighter background for cards */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); /* Inner glow for cards */
+    text-align: left; /* Align text left within cards */
+}
+
+.card h2 {
+    color: #00e5ff; /* Neon blue for card titles */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card h2 .icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #c0c0c0;
+}
+
+/* Form styling */
+form {
+    display: flex; /* Use flexbox for a single column layout */
+    flex-direction: column;
+    gap: 20px; /* Space between input fields */
+    margin-top: 20px;
+    align-items: center; /* Center form elements horizontally */
+}
+
+form input {
+    padding: 14px;
+    width: 90%; /* Adjust width for inputs */
+    max-width: 400px; /* Max width for inputs */
+    border-radius: 8px;
+    border: 1px solid rgba(0, 229, 255, 0.3); /* Subtle neon border */
+    font-size: 1rem;
+    background-color: #1e1e24; /* Darker input background */
+    color: #e0e0e0; /* Light text color */
+    box-sizing: border-box; /* Include padding and border in element's total width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Center placeholder text */
+}
+
+form input::placeholder {
+    color: #a0a0a0; /* Placeholder color */
+    opacity: 0.7;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #00e5ff; /* Brighter neon on focus */
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.7); /* Stronger glow on focus */
+}
+
+form button {
+    margin-top: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #00e5ff; /* Neon blue button */
+    color: #0c0c0f; /* Dark text on button */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4); /* Button shadow */
+    width: 90%; /* Match input width */
+    max-width: 400px; /* Match input max width */
+}
+
+form button:hover {
+    background-color: #00b8d4; /* Slightly darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.6);
+}
+
+.result {
+    margin-top: 30px;
+    background-color: rgba(0, 229, 255, 0.1); /* Light neon background for result */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: #00e5ff; /* Neon blue text for result */
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    text-align: center; /* Center the result text */
+    font-weight: bold;
+}
+
+.graph-section {
+    padding: 20px; /* Adjust padding for graphs */
+    overflow-x: auto; /* Enable horizontal scrolling for graphs on small screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center graph content */
+}
+
+.graph-section h2 {
+    text-align: center; /* Center graph titles */
+}
+
+/* Plotly specific overrides for better integration */
+.js-plotly-plot .plotly .modebar {
+    background-color: rgba(30, 30, 36, 0.8) !important; /* Darker modebar background */
+    border-radius: 5px;
+}
+
+.js-plotly-plot .plotly .modebar-btn {
+    color: #00e5ff !important; /* Neon blue icons */
+}
+
+.js-plotly-plot .plotly .modebar-btn:hover {
+    background-color: rgba(0, 229, 255, 0.2) !important;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+}
+
+footer .icon {
+    color: #e0e0e0; /* White for heart icon */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+
+    form input,
+    form button {
+        width: 100%; /* Full width on small screens */
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    form button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .result {
+        font-size: 1rem;
+    }
+}
